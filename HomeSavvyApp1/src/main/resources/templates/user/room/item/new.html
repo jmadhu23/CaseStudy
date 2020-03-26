@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>HomeSavvy - Add Item</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+</head>
+<body>
+	<header th:insert="fragments/header.html :: header"></header>
+
+	<div class="container">
+
+		<h3>Add Item</h3>
+		<form action="#" th:action="@{/user/room/item/save}"
+			th:object="${item}" method="post">
+			<div class="row">
+
+				<label>&nbsp;&nbsp;Type&nbsp;&nbsp;</label>
+				<div class="custom-control custom-radio custom-control-inline">
+					<input type="radio" id="movable" name="movable"
+						class="custom-control-input" value="movable" th:field="*{type}">
+					<label class="custom-control-label" for="movable">Movable</label>
+				</div>
+				<div class="custom-control custom-radio custom-control-inline">
+					<input type="radio" id="fixed" name="fixed"
+						class="custom-control-input" value="fixed" th:field="*{type}">
+					<label class="custom-control-label" for="fixed">Fixed</label>
+				</div>
+				<div class="col">
+					<input type="hidden" th:field="*{id}" class="form-control">
+
+					<input type="hidden" th:field="*{room.id}" class="form-control">
+
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					Item Name<input type="text" th:field="*{name}" class="form-control"
+						placeholder="Enter Item Name">
+				</div>
+				<div class="col">
+					Serial Number<input type="text" th:field="*{serialNumber}"
+						class="form-control" placeholder="Enter Serial Number">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					Value<input type="number" th:field="*{value}" class="form-control"
+						placeholder="Enter Item Value">
+				</div>
+				<div class="col">
+					Brand<input type="text" th:field="*{brand}" class="form-control"
+						placeholder="Enter Item Brand">
+				</div>
+
+			</div>
+			<div class="row">
+				<div class="col">
+					Purchased From<input type="text" th:field="*{purchasedFrom}"
+						class="form-control" placeholder="Enter Purchased From">
+				</div>
+				<div class="col">
+					Purchase Date<input type="date" th:field="*{datePurchased}"
+						class="form-control" placeholder="Enter Purchase Date">
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col">
+					Warranty Start<input type="date" th:field="*{warrantyStart}"
+						class="form-control" placeholder="Enter Warranty Start Date">
+				</div>
+				<div class="col">
+					Warranty Ends<input type="date" th:field="*{warrantyEnd}"
+						class="form-control" placeholder="Enter Warranty End Date">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					Spare Part Number<input type="text" th:field="*{sparePartNumber}"
+						class="form-control" placeholder="Enter Spare Part Number">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					User Manual URL<input type="text" th:field="*{userDocURL}"
+						class="form-control" placeholder="Enter User Manual Link">
+				</div>
+
+			</div>
+			<button type="submit" class="btn btn-primary mt-3">Save</button>
+		</form>
+
+	</div>
+	<footer th:insert="fragments/footer.html :: footer"></footer>
+</body>
+</html>

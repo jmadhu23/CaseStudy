@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>HomeSavvy - View Room</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+</head>
+<body>
+	<header th:insert="fragments/header.html :: header"></header>
+
+	<div class="container">
+		<br>
+		<br>
+		<br>
+		<h3>View Room</h3>
+		<br>
+		<br>
+		<form action="#" th:action="@{/user/room/view/delete}"
+			th:object="${room}" method="post">
+			<div class="row">
+				<div class="col-lg-3">
+					<input type="hidden" th:field="${room.id}" class="form-control">
+					<input type="hidden" th:field="${room.property}"
+						class="form-control"> Room Name :
+				</div>
+				<div class="col-lg-6">
+					<p th:text="${room.name}">Name</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3">Area(in Sqft) :</div>
+				<div class="col-lg-6">
+					<p th:text="${room.sqft}">Area</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3">Paint Brand :</div>
+				<div class="col-lg-6">
+					<p th:text="${room.paintBrand}">Brand</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-3">Paint Color :</div>
+				<div class="col-lg-6">
+					<p th:text="${room.paintColor}">Color</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					Do you want to Delete?   
+					<button type="submit" class="btn btn-primary mt-3">Yes</button>
+				</div>
+			</div>
+		</form>
+		<a th:href="@{'/user/room/' + ${room.property.id}}">Back</a>
+	</div>
+	<footer th:insert="fragments/footer.html :: footer"></footer>
+</body>
+</html>

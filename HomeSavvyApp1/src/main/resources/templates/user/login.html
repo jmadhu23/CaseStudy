@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Home Savvy - Login</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+</head>
+
+<body>
+	<header th:insert="fragments/headermain.html :: header"></header>
+	<br>
+	<br>
+	<br>
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3"></div>
+			<div class="col-md-6">
+				<div class="alert alert-danger" role="alert" th:if="${param.error}">
+					The email or password is incorrect!
+				</div>
+			
+			<div class="alert alert-success" role="alert" th:if="${msg}"
+						th:utext="${msg}"></div>
+		</div>
+		</div>
+		<form th:action="@{/login}" method="post">
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-6">
+					<h1 class="h3 mb-3 font-weight-normal">Login</h1>
+					<hr>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3"></div>
+				
+				<div class="col-md-6">
+					 <input type="email" id="email" name="email" class="form-control"
+						placeholder="Email" required autofocus>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3"></div>
+				
+				<div class="col-md-6">
+					<input type="password" id="password" name="password" class="form-control"
+						placeholder="Password" required>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-6">
+					<button class="btn btn-md btn-primary btn-block" type="submit">Sign
+						in</button>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3"></div>
+				<div class="col-md-6">
+					<div class="margin-top20 text-center">
+						Don't have an account? <a th:href="@{/signup}">Create an
+							account</a>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+	<footer th:insert="fragments/footer.html :: footer"></footer>
+</body>
+</html>

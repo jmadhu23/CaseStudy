@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>HomeSavvy - View Item</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+</head>
+<body>
+	<header th:insert="fragments/header.html :: header"></header>
+
+	<div class="container">
+		<br>
+		<br>
+		<br>
+		<h3>View Item</h3>
+		<br>
+		<br>
+		<form action="#" th:object="${item}" method="post">
+			<div class="row">
+				<div class="col">
+					<input type="hidden" th:field="${item.id}" class="form-control">
+					<input type="hidden" th:field="${item.room}"
+						class="form-control"> Item Name :
+				</div>
+				<div class="col">
+					<p th:text="${item.name}">Name</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">Item Type</div>
+				<div class="col">
+					<p th:text="${item.type}">Type</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">Serial Number :</div>
+				<div class="col">
+					<p th:text="${item.serialNumber}">Serial Number</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">Value :</div>
+				<div class="col">
+					<p th:text="${item.value}">Value</p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">Brand :</div>
+				<div class="col">
+					<p th:text="${item.brand}">Brand</p>
+				</div>
+			</div>
+						<div class="row">
+				<div class="col">Purchased From :</div>
+				<div class="col">
+					<p th:text="${item.purchasedFrom}">Purchased From</p>
+				</div>
+			</div>
+						<div class="row">
+				<div class="col">Purchase Date :</div>
+				<div class="col">
+					<p th:text="${item.datePurchased}">Purchase Date</p>
+				</div>
+			</div>
+						<div class="row">
+				<div class="col">Warranty Start :</div>
+				<div class="col">
+					<p th:text="${item.warrantyStart}">Warranty Start</p>
+				</div>
+			</div>
+						<div class="row">
+				<div class="col">Warranty End :</div>
+				<div class="col">
+					<p th:text="${item.warrantyEnd}">Warranty End</p>
+				</div>
+			</div>
+									<div class="row">
+				<div class="col">Spare Part Number :</div>
+				<div class="col">
+					<p th:text="${item.sparePartNumber}">Spare Part Number</p>
+				</div>
+			</div>
+									<div class="row">
+				<div class="col">User Manual Link :</div>
+				<div class="col">
+					<p th:text="${item.userDocURL}">User Manual Link</p>
+				</div>
+			</div>
+
+		</form>
+		
+	</div>
+	<footer th:insert="fragments/footer.html :: footer"></footer>
+</body>
+</html>

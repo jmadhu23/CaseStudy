@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>HomeSavvy - Add Room</title>
+<link
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	rel="stylesheet" id="bootstrap-css">
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+</head>
+<body>
+	<header th:insert="fragments/header.html :: header"></header>
+
+	<div class="container">
+
+		<h3>Add Room</h3>
+		<form action="#" th:action="@{/user/room/save}" th:object="${room}"
+			method="post">
+			<div class="row">
+				<div class="col">
+					<input type="hidden" th:field="*{id}" class="form-control">
+
+					<input type="hidden" th:field="*{property}" class="form-control">
+					Room Name<input type="text" th:field="*{name}" class="form-control"
+						placeholder="Enter Room Name">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					Area<input type="text" th:field="*{sqft}" class="form-control"
+						placeholder="Enter Square Foot">
+				</div>
+			</div>
+			<div class="row">
+				<div class="col">
+					Paint Brand<input type="text" th:field="*{paintBrand}" class="form-control"
+						 placeholder="Enter Paint Brand">
+				</div>				
+			</div>
+			<div class="row">
+				<div class="col">
+					Paint Color<input type="text" th:field="*{paintColor}"
+						class="form-control"  placeholder="Enter Paint Color" >
+				</div>
+			</div>
+
+			<button type="submit" class="btn btn-primary mt-3">Save</button>
+		</form>
+		<a th:href="@{'/user/room/' + ${room.property.id}}">Back</a>
+	</div>
+	<footer th:insert="fragments/footer.html :: footer"></footer>
+</body>
+</html>

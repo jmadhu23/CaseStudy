@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+ xmlns:th="http://www.thymeleaf.org">
+<head>
+ <title>Home Savvy - Property</title>
+ <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+ <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css">
+</head>
+<body>
+<header th:insert="fragments/header.html :: header"></header>
+<br><br><br>
+ <div class="container">
+  
+  <h3>Property Details</h3>
+  <div th:if="${update}">
+   <a th:href="@{'/user/room/' + ${property.id}}">Show Rooms</a>
+   </div>
+  <form action="#" th:action="@{/user/property}" th:object="${property}" method="post">
+  	<div class="row">
+          <div class="col">
+            <input type="hidden" th:field="*{id}" class="form-control">
+            <input type="hidden" th:field="*{user}" class="form-control">
+            <input type="hidden" th:field=*{room} class="form-control">
+            Property Name<input type="text" th:field="*{name}" class="form-control" id="name" placeholder="Enter Property Name" name="name">
+          </div>
+        </div>
+    <div class="row">
+            <div class="col">
+              Address<input type="text" th:field="*{street}" class="form-control" id="street" placeholder="Enter Adress" name="street">
+            </div>
+            <div class="col">
+              Address(line 2)<input type="text" th:field="*{street2}" class="form-control" id="street2" placeholder="Enter Address" name="street2">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+              City<input type="text" th:field="*{city}" class="form-control" id="city" placeholder="Enter City" name="city">
+            </div>
+            <div class="col">
+              State<input type="text" th:field="*{state}" class="form-control" id="state" placeholder="Enter State" name="state">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+              ZIP/Postal Code<input type="text" th:field="*{zip}" class="form-control" id="zip" placeholder="Enter ZIP" name="zip">
+            </div>
+            <div class="col">
+                Square Footage<input type="text" th:field="*{sqft}" class="form-control" id="sqft" placeholder="Enter SqFt" name="sqft">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+              Date Built<input type="date" th:field="*{yearBuilt}" class="form-control" id="yearbuilt" placeholder="Enter Date Built" name="yearbuilt">
+            </div>
+            <div class="col">
+              Builder<input type="text" th:field="*{builder}" class="form-control" id="builder" placeholder="Enter Builder" name="builder">
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary mt-3">Save</button>
+ 
+ 
+</form>
+  
+
+ </div>
+ <footer th:insert="fragments/footer.html :: footer"></footer>
+</body>
+</html>
